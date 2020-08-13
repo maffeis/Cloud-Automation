@@ -48,7 +48,7 @@ function f_sendLog()
     messJson=$(printf "$template" "$logTitle" "$messConcat")
     if [ $logWebhookName == "no" ]; then
         local logFile="/tmp/install-log-apim.log"
-        $messJson >> $logFile
+        echo "$messJson" >> $logFile
     else
          curl --header "Content-Type: application/json" \
          --request POST \
