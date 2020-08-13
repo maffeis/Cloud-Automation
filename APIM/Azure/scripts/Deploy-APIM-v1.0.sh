@@ -177,7 +177,7 @@ function f_Get_Sources ()
     f_Create_Folder $depFolder
     f_Create_Folder $helmFolder
 
-	log "Get User files from storage"
+	log "Get User files from storage: $userBlobStorageName $dataContainerName"
     if  [[ -n $(az storage blob list --account-name $userBlobStorageName --container-name $dataContainerName --output tsv | grep '.lic') ]]; then
         log "Licence key is present"
         az storage blob download-batch --account-name $userBlobStorageName \
